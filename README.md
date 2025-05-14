@@ -72,7 +72,7 @@ summary(diamonds)
 diamonds. What do you learn? Think about a diamond and how you might
 decide which dimension is the length, width, and depth.**
 
-<u>Graphs of Distributions of X, Y, and Z variables:</u>
+> Graphs of Distributions of X, Y, and Z variables:
 
 ``` r
 # Distribution of x variable
@@ -111,14 +111,14 @@ ggplot(diamonds, aes(x = z)) +
 
 ![](Markdown_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
-<u>What do I learn:</u>
+> What do I learn:
 
 All three distributions are right skew, with a concentration around the
 smaller dimensions. The distributions of X and Y are similar
 (~4.25,~9.0) while Z has a smaller average dimension and a slightly
 tighter spread with a range around (~2.3,~5.4).
 
-<u>Deciding Dimensions:</u>
+> Deciding Dimensions:</u>
 
 The two longer and nearly identically distributed dimensions (x and y)
 are likely width and length while the shorter and tighter distributed
@@ -138,7 +138,7 @@ ggplot(diamonds, aes(x = price)) +
 
 ![](Markdown_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
-<u>Discoveries:</u>
+> Discoveries:
 
 There seems to be a weird and significant gap in distribution of prices
 around ~1800 USD, as well as a small spike around ~4000 USD. The
@@ -167,7 +167,7 @@ count_1
 
     ## [1] 1558
 
-<u>Analysis of Carat counts:</u>
+> Analysis of Carat counts:
 
 There are 23 diamonds that are 0.99 carat, and 1558 diamonds that are
 one 1.0 carat. This significant difference is likely due to rounding
@@ -182,7 +182,7 @@ What happens if you try and zoom so only half a bar shows?**
 
 #### 
 
-<u>*Plots with zooms of Price Distribution from (1700, 2100):*</u>
+> *Plots with zooms of Price Distribution from (1700, 2100):*
 
 ``` r
 #Coord_Cartesian() zoom
@@ -211,8 +211,8 @@ ggplot(diamonds, aes(x = price)) +
 
 #### 
 
-<u>*Plots with zooms of Price Distribution from (1700, 2100) with
-bin-width left unset:*</u>
+> *Plots with zooms of Price Distribution from (1700, 2100) with
+bin-width left unset:* 
 
 ``` r
 #Coord_Cartesian() zoom w/o binwidth
@@ -243,7 +243,7 @@ ggplot(diamonds, aes(x = price)) +
 
 ![](Markdown_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
-<u>Plots with Zooms of Price Distribution to a Partial Bar:</u>
+> Plots with Zooms of Price Distribution to a Partial Bar: 
 
 ``` r
 #Coord_Cartesian() zoom to half bar
@@ -270,21 +270,21 @@ ggplot(diamonds, aes(x = price)) +
 
 ![](Markdown_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
-<u>Analysis:</u>
+> Analysis:
 
 Coord_Cartesian() allows you to zoom in without modfying or removing any
 data points, while xlim() or ylim() restrict and filter the data that is
 plotted to only the section specified. This means the scale of the plot
 is changed to fit the smaller “zoomed” section.
 
-<u>Bin-width Unset:</u>
+> Bin-width Unset:</u>
 
 If you leave binwidth unset ggplot2 automatically selects an
 “appropriate” bin size. However, this means with Coord_Cartesian the bin
 size will likely be too large for the plot \[not an issue with xlim() or
 ylim()…\].
 
-<u>Zooming to half a bar:</u>
+> Zooming to half a bar:
 
 If you try and zoom so only half a bar shows, Coord_Cartesian will show
 the truncated or partial bar (within the zoom of the larger plot) while
@@ -298,7 +298,7 @@ xlim() or ylim() will show a blank chart in the specified range.
 missing values in a bar chart? Why is there a difference in how missing
 values are handled in histograms and bar charts?**
 
-<u>Change 10% of Price Values to Missing:</u>
+> Change 10% of Price Values to Missing:
 
 ``` r
 set.seed(123)
@@ -311,7 +311,7 @@ sum(is.na(diamonds$price))
 
     ## [1] 5394
 
-<u>Histogram of Prices w/ Missing Values:</u>
+> Histogram of Prices w/ Missing Values:
 
 ``` r
 # Load required libraries
@@ -330,7 +330,7 @@ ggplot(diamonds, aes(x = price)) +
 
 ![](Markdown_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
 
-<u>Change 10% of Clarity Values to Missing:</u>
+> Change 10% of Clarity Values to Missing:
 
 ``` r
 # Set a seed for reproducibility
@@ -357,13 +357,13 @@ ggplot(diamonds, aes(x = clarity)) +
 
 ![](Markdown_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
 
-<u>Missing Values in a Histogram:</u>
+> Missing Values in a Histogram:
 
 Missing Values in a Histogram are ignored by default as a histogram is
 intended to show distribution of continuous variables (and the missing
 values will not fit in a bin).
 
-<u>Missing Values in a Bar Chart:</u>
+> Missing Values in a Bar Chart:
 
 Missing Values in a Bar Chart are included under an seperate category
 (ex. N/A) as seen above. Bar charts are intended to show distribution of
@@ -374,7 +374,7 @@ category.
 [`mean()`](https://rdrr.io/r/base/mean.html) and
 [`sum()`](https://rdrr.io/r/base/sum.html)?**
 
-<u>Mean() w/ missing values</u>
+> Mean() w/ missing values
 
 ``` r
 mean(diamonds$price) #with missing values
@@ -388,7 +388,7 @@ mean(diamonds$price, na.rm = TRUE)
 
     ## [1] 3932.103
 
-<u>Sum() w/ Missing Values</u>
+> Sum() w/ Missing Values
 
 ``` r
 sum(diamonds$price) #with mising values
@@ -402,7 +402,7 @@ sum(diamonds$price, na.rm = TRUE)  # Assuming the column is named
 
     ## [1] 190887880
 
-<u>Analysis for mean() and sum()</u>
+> Analysis for mean() and sum()
 
 In mean() and sum(), na.rm = TRUE removes any missing values present
 before performing the calculations. If there are missing values, mean()
@@ -414,7 +414,7 @@ variable. Experiment with different values of the `scales` variable in
 the faceting function to mitigate the effect of more non-cancelled
 flights than cancelled flights.**
 
-<u>Download Flights Data and Prep:</u>
+> Download Flights Data and Prep:
 
 ``` r
 # Load necessary libraries
@@ -432,9 +432,9 @@ library(dplyr)
 library(ggplot2)
 ```
 
-<u>Recreated Frequency Plot of scheduled_dep_time (colored by
+> Recreated Frequency Plot of scheduled_dep_time (colored by
 cancellation, faceted by cancelled variable, & scale variable set to
-minimize effect of relative quantities)</u>
+minimize the effect of relative quantities)
 
 ``` r
 flights |> 
@@ -455,7 +455,7 @@ flights |>
 
 ![](Markdown_files/figure-gfm/unnamed-chunk-20-1.png)<!-- -->
 
-<u>Notes on experimenting with different scales:</u>
+> Notes on experimenting with different scales:
 
 In order to mitigate the effect of more non-cancelled flights than
 cancelled flights, the best scale variable values are “free” or
