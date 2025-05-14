@@ -9,7 +9,7 @@ using R Markdown see <http://rmarkdown.rstudio.com>.
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-<u>Data Preperation for Diamonds Data Set:</u>
+> Data Preperation for Diamonds Data Set:
 
 ``` r
 # Download tidyverse library 
